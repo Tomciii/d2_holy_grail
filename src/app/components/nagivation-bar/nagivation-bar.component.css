@@ -1,0 +1,10 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(240, 240, 240);
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
