@@ -1,0 +1,20 @@
+.itemTable {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.mat-elevation-z8 {
+    width: 100%;
+}
+
+table td,
+table th {
+  font-size: 9px; /* Adjust the font size as needed */
+}
+
+img {
+    width: 30px;
+}
