@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ItemDataService } from '../../service/item-data/item-data.service';
+import { ItemService } from '../../service/item-data/item.service';
 import {Item} from "../../model/item.model";
 @Component({
   selector: 'app-table',
@@ -15,7 +15,7 @@ export class TableComponent implements OnInit, OnChanges {
   itemsFound!: number;
   itemsTotalCount!: number;
 
-  constructor(private dataService: ItemDataService) { }
+  constructor(private dataService: ItemService) { }
 
   ngOnInit() {
     this.refreshTable();
@@ -26,7 +26,7 @@ export class TableComponent implements OnInit, OnChanges {
   }
 
   refreshTable(): void {
-    const items = this.dataService.getItems(this.itemType);
+    const items = this.dataService.getAllItems(this.itemType);
     this.itemDataSource = new MatTableDataSource<Item>(items);
     this.itemsFound = this.dataService.getItemsFoundCount(items);
     this.itemsTotalCount = items.length;
