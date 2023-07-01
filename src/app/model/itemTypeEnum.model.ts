@@ -22,3 +22,38 @@ export enum ItemTypeEnum {
   ThrowingWeapons = 21,
   Wands = 22
 }
+
+export enum ItemVariety {
+  Cap,
+  Skull,
+  Helm,
+  Full_Helm,
+  Great_Helm,
+  Mask,
+  Crown,
+  Bone_Helm,
+  War_Hat,
+  Sallet,
+  Casque,
+  Basinet,
+  Winget_Helm,
+  Death_Mask,
+  Grand_Crown,
+  Grim_Helm,
+  Shako,
+  Armet,
+  Spired_Helm,
+  Demonhead_Mask,
+  Corona,
+  Bone_Visage,
+  Battle_Boots,
+  War_Boots
+}
+
+export enum ItemRarity {
+  Unique,
+  Exceptional_Unique,
+  Angelic_Raiment,
+  Arcannas_Tricks,
+  Arctic_Gear
+}
