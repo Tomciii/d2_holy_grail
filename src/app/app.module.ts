@@ -11,13 +11,16 @@ import { TableComponent } from './components/table/table.component';
 import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import { ItemTableComponent } from './components/item-table/item-table.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NagivationBarComponent,
     TableComponent,
-    DropdownMenuComponent
+    DropdownMenuComponent,
+    ItemTableComponent
   ],
   imports: [
     BrowserModule,

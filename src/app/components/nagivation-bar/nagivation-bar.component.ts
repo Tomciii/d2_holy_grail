@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ItemTypesService} from "../../service/item-types/item-types.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nagivation-bar',
@@ -13,8 +14,12 @@ export class NagivationBarComponent implements OnInit {
   @Input() armorTypes: string[] = this.itemSerive.getArmorTypes()
   @Input() weaponTypes: string[] = this.itemSerive.getWeaponTypes()
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+  
+  navigateToPage() {
+    this.router.navigate(["/"]);
   }
 }

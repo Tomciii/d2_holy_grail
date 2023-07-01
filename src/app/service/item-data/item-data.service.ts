@@ -1,16 +1,22 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Item} from "../../model/item.model";
+import {ItemTypeEnum} from "../../model/itemTypeEnum.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemDataService {
-  private data: any[] = [
-    { id: 1, name: 'Wormskull', image:"", found:true },
-    { id: 2, name: 'Undead Crown', image:"", found:true},
-
+  private data: Item[] = [
+    new Item("Harlequin Crest", ItemTypeEnum.Helms, ["Defense: 98-141", "Req Strength:50"],true,"https://assets.d2grail.com/images/uniques/harlequin-crest-8f143.png"),
+    new Item("War Traveler", ItemTypeEnum.Boots, ["Assassin Kick Damage: 37-64", "Defense: 120-139"],true,"https://assets.d2grail.com/images/uniques/war-traveler-7f82c.png")
   ];
 
-  getData(): any[] {
-    return this.data;
+  getData(item: string): Item[] {
+    const itemType: ItemTypeEnum = ItemTypeEnum[item as keyof typeof ItemTypeEnum];
+
+    if (item === "/" || item === "")
+      return this.data
+
+    return this.data.filter((item) => item.itemType === itemType);
   }
 }

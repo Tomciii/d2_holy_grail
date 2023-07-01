@@ -1,17 +1,17 @@
 import {ItemTypeEnum} from "./itemTypeEnum.model";
 
 export class Item {
-  id: number;
   name: string;
   itemType: ItemTypeEnum;
   stats: string[];
   found: boolean;
+  image: string;
 
-  constructor(id: number, name: string, itemType: ItemTypeEnum, stats:string[], found:boolean) {
-    this.id = id;
+  constructor(name: string, itemType: ItemTypeEnum, stats:string[], found:boolean, image:string) {
     this.name = name;
     this.stats = stats;
     this.found = found;
     this.itemType = itemType;
+    this.image = image;
   }
 }
