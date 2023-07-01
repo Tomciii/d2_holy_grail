@@ -1,4 +1,3 @@
-// table.component.ts
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ItemDataService } from '../../service/item-data/item-data.service';
@@ -8,7 +7,7 @@ import { ItemDataService } from '../../service/item-data/item-data.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  displayedColumns: string[] = [ 'image', 'name', 'found'];
+  displayedColumns: string[] = [ 'item', 'stats', 'found'];
   dataSource!: MatTableDataSource<any>;
 
   constructor(private dataService: ItemDataService) { }

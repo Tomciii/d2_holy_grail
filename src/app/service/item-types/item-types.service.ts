@@ -1,42 +1,43 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {ItemTypeEnum} from "../../model/itemTypeEnum.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemTypesService {
-  private armorTypes: any[] = [
-    { id: 1, name: 'Helms' },
-    { id: 1, name: 'Circlets' },
-    { id: 3, name: 'Body Armors'},
-    { id: 4, name: 'Shields'},
-    { id: 5, name: 'Gloves'},
-    { id: 6, name: 'Boots'},
-    { id: 7, name: 'Belts'},
-    { id: 8, name: 'Rings'},
-    { id: 9, name: 'Amulets'},
-    { id: 10, name: 'Jewels'},
+  private armorTypes: ItemTypeEnum[] = [
+    ItemTypeEnum.Amulets,
+    ItemTypeEnum.BodyArmors,
+    ItemTypeEnum.Boots,
+    ItemTypeEnum.Belts,
+    ItemTypeEnum.Circlets,
+    ItemTypeEnum.Gloves,
+    ItemTypeEnum.Helms,
+    ItemTypeEnum.Shields,
+    ItemTypeEnum.Rings,
+    ItemTypeEnum.Jewels
   ];
 
-  private weaponTypes: any[] = [
-    { id: 1, name: 'Axes' },
-    { id: 2, name: '(Cross)Bows' },
-    { id: 3, name: 'Daggers'},
-    { id: 4, name: 'Javelins'},
-    { id: 5, name: 'Maces'},
-    { id: 6, name: 'Polearms'},
-    { id: 7, name: 'Scepter'},
-    { id: 8, name: 'Spears'},
-    { id: 9, name: 'Staves'},
-    { id: 10, name: 'Swords'},
-    { id: 11, name: 'Throwing Weapons'},
-    { id: 12, name: 'Wands'},
+  private weaponTypes: ItemTypeEnum[] = [
+    ItemTypeEnum.Axes,
+    ItemTypeEnum.Crossbows,
+    ItemTypeEnum.Daggers,
+    ItemTypeEnum.Javelins,
+    ItemTypeEnum.Maces,
+    ItemTypeEnum.Polearms,
+    ItemTypeEnum.Scepter,
+    ItemTypeEnum.Spears,
+    ItemTypeEnum.Staves,
+    ItemTypeEnum.Swords,
+    ItemTypeEnum.ThrowingWeapons,
+    ItemTypeEnum.Wands
   ];
 
   getArmorTypes(): any[] {
-    return this.armorTypes.map(item => item.name);
+    return this.armorTypes.map((type: ItemTypeEnum) => ItemTypeEnum[type]);
   }
 
   getWeaponTypes(): any[] {
-    return this.weaponTypes.map(item => item.name);
+    return this.weaponTypes.map((type: ItemTypeEnum) => ItemTypeEnum[type]);
   }
 }
