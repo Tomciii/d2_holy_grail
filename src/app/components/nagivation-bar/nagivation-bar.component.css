@@ -1,11 +1,25 @@
-.navbar {
-    top: 0;
-    left: 0;
-    background-color: rgb(240, 240, 240);
-    right: 0;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    justify-content: center;
-    margin-bottom:30px;
+.navbar-wrapper {
+  background-color: rgb(240, 240, 240);
+  margin-bottom:15px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar-header, .navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   }
+
+h1 {
+  margin-top: 15px;
+  padding: 10px;
+}
+
+a {
+  padding-bottom: 15px;
+}
+.navbar-content {
+  justify-content: space-evenly;
+}

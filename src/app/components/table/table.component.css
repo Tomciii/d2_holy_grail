@@ -15,6 +15,10 @@ table th {
   font-size: 9px; /* Adjust the font size as needed */
 }
 
+table th {
+  font-weight: bold; /* Adjust the font size as needed */
+}
+
 img {
     width: 30px;
 }
