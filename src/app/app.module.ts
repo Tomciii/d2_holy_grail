@@ -12,7 +12,8 @@ import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import { ItemTableComponent } from './components/item-table/item-table.component';
-
+import {MatCheckboxModule } from '@angular/material/checkbox';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { ItemTableComponent } from './components/item-table/item-table.component
     MatTableModule,
     MatPaginatorModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

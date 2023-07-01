@@ -7,8 +7,8 @@ import {ItemTypeEnum} from "../../model/itemTypeEnum.model";
 })
 export class ItemDataService {
   private data: Item[] = [
-    new Item("Harlequin Crest", ItemTypeEnum.Helms, ["Defense: 98-141", "Req Strength:50"],true,"https://assets.d2grail.com/images/uniques/harlequin-crest-8f143.png"),
-    new Item("War Traveler", ItemTypeEnum.Boots, ["Assassin Kick Damage: 37-64", "Defense: 120-139"],true,"https://assets.d2grail.com/images/uniques/war-traveler-7f82c.png")
+    new Item("Harlequin Crest", ItemTypeEnum.Helms, ["Defense: 98-141", "Req Strength:50"],false,"https://assets.d2grail.com/images/uniques/harlequin-crest-8f143.png"),
+    new Item("War Traveler", ItemTypeEnum.Boots, ["Assassin Kick Damage: 37-64", "Defense: 120-139"],false,"https://assets.d2grail.com/images/uniques/war-traveler-7f82c.png")
   ];
 
   getData(item: string): Item[] {
