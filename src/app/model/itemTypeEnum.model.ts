@@ -20,7 +20,14 @@ export enum ItemTypeEnum {
   Staves = 19,
   Swords = 20,
   ThrowingWeapons = 21,
-  Wands = 22
+  Wands = 22,
+  Weapons = 23,
+  Armor,
+  Charms,
+  Katars,
+  ShrunkenHeads,
+  Orbs,
+  Pelts
 }
 
 export enum ItemVariety {

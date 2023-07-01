@@ -16,7 +16,7 @@ export class ItemService {
     }
 
     const itemType: ItemTypeEnum = ItemTypeEnum[item as keyof typeof ItemTypeEnum];
-    return this.itemRepository.getItemsByType(itemType);
+    return this.itemRepository.getItemsByType(ItemTypeEnum[itemType]);
   }
 
   getItemsFoundCount(items: Item[]): number {

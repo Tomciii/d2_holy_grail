@@ -4,12 +4,10 @@
     <ng-container matColumnDef="item">
       <th mat-header-cell *matHeaderCellDef>Item</th>
       <td mat-cell *matCellDef="let element">
-        <div>
           <img [src]="element.image" alt="{{ element.name }}" />
-          <p>{{ element.name }}</p>
-          <p>{{element.variety}}</p>
-          <p>{{element.rarity}}</p>
-        </div>
+          <p class="bold">{{ element.name }}</p>
+        <p>{{element.rarity}}</p>
+        <p>{{element.variety}}</p>
       </td>
     </ng-container>
     <ng-container matColumnDef="stats">
