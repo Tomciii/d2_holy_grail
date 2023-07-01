@@ -1,4 +1,3 @@
-// item.service.ts
 import { Injectable } from '@angular/core';
 import { Item } from '../../model/item.model';
 import { ItemTypeEnum } from '../../model/itemTypeEnum.model';
@@ -8,6 +7,7 @@ import { ItemRepository } from '../../repository/item-data.repository';
   providedIn: 'root'
 })
 export class ItemService {
+
   constructor(private itemRepository: ItemRepository) {}
 
   getAllItems(item: string): Item[] {

@@ -1,4 +1,4 @@
-import {ItemRarity, ItemTypeEnum, ItemVariety} from "./itemTypeEnum.model";
+import {ItemTypeEnum} from "./itemTypeEnum.model";
 
 export class Item {
   name: string;
