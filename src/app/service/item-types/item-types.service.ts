@@ -15,7 +15,8 @@ export class ItemTypesService {
     ItemTypeEnum.Helms,
     ItemTypeEnum.Shields,
     ItemTypeEnum.Rings,
-    ItemTypeEnum.Jewels
+    ItemTypeEnum.Jewels,
+    ItemTypeEnum.Pelts
   ];
 
   private weaponTypes: ItemTypeEnum[] = [
@@ -30,7 +31,8 @@ export class ItemTypesService {
     ItemTypeEnum.Staves,
     ItemTypeEnum.Swords,
     ItemTypeEnum.ThrowingWeapons,
-    ItemTypeEnum.Wands
+    ItemTypeEnum.Wands,
+    ItemTypeEnum.Orbs
   ];
 
   getArmorTypes(): any[] {

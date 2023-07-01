@@ -10,7 +10,7 @@ import {Item} from "../../model/item.model";
 export class TableComponent implements OnInit, OnChanges {
   @Input() itemType!: string;
 
-  displayedColumns: string[] = [ 'item', 'stats', 'found'];
+  displayedColumns: string[] = [ 'image', 'item', 'stats', 'found'];
   itemDataSource!: MatTableDataSource<any>;
   itemsFound!: number;
   itemsTotalCount!: number;
