@@ -1,5 +1,6 @@
+<h2>{{itemsFound}}/{{itemsTotalCount}}</h2>
 <div class="itemTable">
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="itemDataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="item">
       <th mat-header-cell *matHeaderCellDef>Item</th>
       <td mat-cell *matCellDef="let element">
@@ -20,7 +21,7 @@
     <ng-container matColumnDef="found">
       <th mat-header-cell *matHeaderCellDef>Found</th>
       <td mat-cell *matCellDef="let element">
-        <mat-checkbox color="primary" [(ngModel)]="element.found"></mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="element.found" (change)="refreshTable()"></mat-checkbox>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
