@@ -28,7 +28,6 @@ export class TableComponent implements OnInit, OnChanges {
     this.refreshTable();
   }
 
-
   async updateTable(): Promise<void> {
     this.itemDataSource = new MatTableDataSource<Item>(this.selectedItems);
     this.itemsFound = this.dataService.getItemsFoundCount(this.selectedItems);
@@ -42,13 +41,9 @@ export class TableComponent implements OnInit, OnChanges {
     this.selectedItems.forEach((selectedItem) => {
       const itemToUpdate = this.allItems.find((item) => item.name === selectedItem.name);
       if (itemToUpdate) {
-        console.log("ItemToUpdate: " + JSON.stringify(itemToUpdate))
         itemToUpdate.found = selectedItem.found;
       }
     });
-
-    console.log(this.allItems)
-    console.log(this.selectedItems)
   }
 
   async refreshTable(): Promise<void> {

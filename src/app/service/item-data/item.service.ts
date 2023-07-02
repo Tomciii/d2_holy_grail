@@ -6,28 +6,28 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ItemService {
-  private apiUrl = 'http://localhost:8080/public/api/getItemData';
+  private backend = 'http://localhost:8080/public/api/'
+  private apiGETUrl = this.backend + 'getItemData';
+  private apiPOSTUrl = this.backend + 'saveItemData';
+
   private fullItemData: Item[] = [];
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {}
 
   async getAllItems(): Promise<Item[]> {
     try {
-      const response = await this.http.get<Item[]>(this.apiUrl).toPromise();
+      const response = await this.http.get<Item[]>(this.apiGETUrl).toPromise();
       this.fullItemData = response ? response : [];
       return response ? response : [];
     } catch (error) {
-      console.error('Error fetching data:', error);
       return [];
     }
   }
 
   save(items: Item[]): void {
     const json = JSON.stringify(items);
-    const url = 'http://localhost:8080/public/api/saveItemData';
-    this.saveItemData(json, url)
+
+    this.saveItemData(json, this.apiPOSTUrl)
       .then((response) => console.log('Items saved successfully' + response))
       .catch(error => console.error('Error saving items:', error));
   }
@@ -42,7 +42,7 @@ export class ItemService {
 
   async getItemsFoundByItemType(itemType: string): Promise<Item[]> {
     try {
-      const response = await this.http.get<Item[]>(this.apiUrl).toPromise();
+      const response = await this.http.get<Item[]>(this.apiGETUrl).toPromise();
       const items = response ? response : [];
       this.fullItemData = items;
 
@@ -51,7 +51,6 @@ export class ItemService {
 
       return items.filter(item => item.itemType === itemType);
     } catch (error) {
-      console.error('Error fetching data:', error);
       return [];
     }
   }
