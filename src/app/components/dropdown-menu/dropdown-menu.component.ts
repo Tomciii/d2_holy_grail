@@ -1,5 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
+import {ItemService} from "../../service/item-data/item.service";
+import {HttpClient} from "@angular/common/http";
 /**
  * @title Basic menu
  */
@@ -9,22 +11,40 @@ import {Router} from '@angular/router';
 })
 export class DropdownMenuComponent {
 
-  constructor(private router: Router) {}
+  private backend = 'http://localhost:8080/public/api/'
+  private apiRESETUrl = this.backend + 'resetItemData';
+  private apiExportUrl = this.backend + 'exportItemData';
+  private apiImportUrl = this.backend + 'importItemData';
+
+  constructor(private router: Router, private http: HttpClient) {}
   @Input() buttonTitle: string = "";
   @Input() menuItems: string[] = [""];
   @Input() handleClickValue: string = "";
 
   handleMenuClick(clickedMenuItem: string){
     switch (clickedMenuItem){
-      case "Export": console.log("Hello Export")
+      case "Export": this.export()
         break;
-      case "Import": console.log("Hello Import")
+      case "Import": this.import()
         break;
-      case "Reset": console.log("Hello Reset")
+      case "Reset": this.reset()
         break;
       default: this.navigateToPage(clickedMenuItem)
     }
   }
+
+  reset(){
+    this.http.get(this.apiRESETUrl).toPromise();
+  }
+
+  export(){
+    this.http.get(this.apiExportUrl).toPromise();
+  }
+
+  import(){
+    this.http.get(this.apiImportUrl).toPromise();
+  }
+
   navigateToPage(pageName: string) {
     this.router.navigate(["items", pageName]);
   }
