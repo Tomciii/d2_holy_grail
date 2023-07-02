@@ -1,5 +1,5 @@
 .body {
-  font-family: "Times New Roman"
+  font-family: "Cinzel Decorative";
 }
 
 .navbar-wrapper {
@@ -8,16 +8,34 @@
   left: 0;
   right: 0;
   color: white;
+  padding-top: 15px;
+  font-family: "Cinzel Decorative";
+  position: relative;
 }
 
-.navbar-header, .navbar-content {
-  padding-bottom: 5px;
-  padding-top: 20px;
-  width: 90%;
-  margin: 0 auto; /* Center the navbar-header */
-  font-weight: bold;
-  }
+.navbar-container {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.navbar-header {
+  display: inline-block;
+}
+
+.dropdowns-wrapper {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.navbar-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: "Cinzel Decorative";
+}
 
 h3 {
-  font-weight: bold
+  font-weight: bold;
+  font-family: "Cinzel Decorative";
 }
