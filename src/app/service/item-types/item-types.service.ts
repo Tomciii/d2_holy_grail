@@ -10,13 +10,11 @@ export class ItemTypesService {
     ItemTypeEnum.BodyArmors,
     ItemTypeEnum.Boots,
     ItemTypeEnum.Belts,
-    ItemTypeEnum.Circlets,
     ItemTypeEnum.Gloves,
     ItemTypeEnum.Helms,
     ItemTypeEnum.Shields,
     ItemTypeEnum.Rings,
-    ItemTypeEnum.Jewels,
-    ItemTypeEnum.Pelts
+    ItemTypeEnum.Jewels
   ];
 
   private weaponTypes: ItemTypeEnum[] = [
