@@ -3,3 +3,12 @@ h1, h2 {
   align-items: center;
   justify-content: center;
 }
+
+h2 {
+  padding-top: 25px;
+}
+
+* {
+  color: wheat;
+  background: #343434;
+}

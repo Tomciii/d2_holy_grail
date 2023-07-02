@@ -1,25 +1,23 @@
+.body {
+  font-family: "Times New Roman"
+}
+
 .navbar-wrapper {
-  background-color: rgb(240, 240, 240);
-  margin-bottom:15px;
+  background: #484646;
   top: 0;
   left: 0;
   right: 0;
+  color: white;
 }
 
 .navbar-header, .navbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-bottom: 5px;
+  padding-top: 20px;
+  width: 90%;
+  margin: 0 auto; /* Center the navbar-header */
+  font-weight: bold;
   }
 
-h1 {
-  margin-top: 15px;
-  padding: 10px;
-}
-
-a {
-  padding-bottom: 15px;
-}
-.navbar-content {
-  justify-content: space-evenly;
+h3 {
+  font-weight: bold
 }

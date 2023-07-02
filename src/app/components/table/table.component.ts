@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ItemService } from '../../service/item-data/item.service';
 import {Item} from "../../model/item.model";
@@ -6,7 +6,7 @@ import {Item} from "../../model/item.model";
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit, OnChanges {
   @Input() itemType!: string;
