@@ -14,7 +14,8 @@ export class ItemTypesService {
     ItemTypeEnum.Helms,
     ItemTypeEnum.Shields,
     ItemTypeEnum.Rings,
-    ItemTypeEnum.Jewels
+    ItemTypeEnum.Jewels,
+    ItemTypeEnum.Runes
   ];
 
   private weaponTypes: ItemTypeEnum[] = [
@@ -33,8 +34,16 @@ export class ItemTypesService {
     ItemTypeEnum.Orbs
   ];
 
+  private runesTypes: ItemTypeEnum[] = [
+    ItemTypeEnum.Runes
+  ];
+
   getArmorTypes(): any[] {
     return this.armorTypes.map((type: ItemTypeEnum) => ItemTypeEnum[type]);
+  }
+
+  getRuneTypes(): any[] {
+    return this.runesTypes.map((type: ItemTypeEnum) => ItemTypeEnum[type])
   }
 
   getWeaponTypes(): any[] {

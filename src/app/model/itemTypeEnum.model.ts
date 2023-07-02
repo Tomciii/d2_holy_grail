@@ -27,7 +27,8 @@ export enum ItemTypeEnum {
   Katars,
   ShrunkenHeads,
   Orbs,
-  Pelts
+  Pelts,
+  Runes
 }
 
 export enum ItemVariety {

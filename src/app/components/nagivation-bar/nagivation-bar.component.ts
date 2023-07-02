@@ -13,6 +13,7 @@ export class NagivationBarComponent implements OnInit {
   title: string = "Diablo 2 Holy Grail";
   @Input() armorTypes: string[] = this.itemSerive.getArmorTypes()
   @Input() weaponTypes: string[] = this.itemSerive.getWeaponTypes()
+  @Input() runeTypes: string[] = this.itemSerive.getRuneTypes()
   @Input() menuItems: string[] = ["Export", "Import", "Reset"]
 
   constructor(private router: Router) { }
