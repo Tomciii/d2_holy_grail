@@ -11,7 +11,8 @@ import {Item} from "../../model/item.model";
 export class TableComponent implements OnInit, OnChanges {
   @Input() itemType!: string;
 
-  items: Item[] = [];
+  allItems: Item[] = [];
+  selectedItems: Item[] = [];
   displayedColumns: string[] = ['image', 'item', 'stats', 'found'];
   itemDataSource!: MatTableDataSource<any>;
   itemsFound!: number;
@@ -27,20 +28,36 @@ export class TableComponent implements OnInit, OnChanges {
     this.refreshTable();
   }
 
-  async refreshPage() : Promise<void>{
-    this.itemDataSource = new MatTableDataSource<Item>(this.items);
-    this.itemsFound = this.dataService.getItemsFoundCount(this.items);
-    this.itemsTotalCount = this.items.length;
+
+  async updateTable(): Promise<void> {
+    this.itemDataSource = new MatTableDataSource<Item>(this.selectedItems);
+    this.itemsFound = this.dataService.getItemsFoundCount(this.selectedItems);
+    this.itemsTotalCount = this.selectedItems.length;
+    this.updateFoundStatus();
     this.saveItems();
   }
 
-  async refreshTable(): Promise<void> {
-    const items = await this.dataService.getItemsFoundByItemType(this.itemType);
-    this.items = items;
-    this.refreshPage();
+
+  updateFoundStatus(): void {
+    this.selectedItems.forEach((selectedItem) => {
+      const itemToUpdate = this.allItems.find((item) => item.name === selectedItem.name);
+      if (itemToUpdate) {
+        console.log("ItemToUpdate: " + JSON.stringify(itemToUpdate))
+        itemToUpdate.found = selectedItem.found;
+      }
+    });
+
+    console.log(this.allItems)
+    console.log(this.selectedItems)
   }
 
-  saveItems(): void {
-    this.dataService.saveItemsToJSONFile(this.items);
+  async refreshTable(): Promise<void> {
+    this.allItems = await this.dataService.getAllItems();
+    this.selectedItems = await this.dataService.getItemsFoundByItemType(this.itemType);
+    this.updateTable();
+  }
+
+  async saveItems(): Promise<void> {
+    this.dataService.save(this.allItems);
   }
 }

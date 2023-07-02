@@ -6,11 +6,17 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ItemService {
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:8080/public/api/getItemData';
+  private fullItemData: Item[] = [];
 
-  async getAllItems(item?: string): Promise<Item[]> {
+  constructor(private http: HttpClient) {
+
+  }
+
+  async getAllItems(): Promise<Item[]> {
     try {
-      const response = await this.http.get<Item[]>('assets/item-data.json').toPromise();
+      const response = await this.http.get<Item[]>(this.apiUrl).toPromise();
+      this.fullItemData = response ? response : [];
       return response ? response : [];
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -18,29 +24,30 @@ export class ItemService {
     }
   }
 
-  saveItemsToJSONFile(items: Item[]): void {
+  save(items: Item[]): void {
     const json = JSON.stringify(items);
-    const url = 'http://localhost:4200/assets/item-data.json';
-
-    this.http.put(url, json).subscribe(
-      () => console.log('Items saved successfully'),
-      error => console.error('Error saving items:', error)
-    );
+    const url = 'http://localhost:8080/public/api/saveItemData';
+    this.saveItemData(json, url)
+      .then((response) => console.log('Items saved successfully' + response))
+      .catch(error => console.error('Error saving items:', error));
   }
 
+  saveItemData(jsonData: string, url: string): Promise<any> {
+    return this.http.post(url, jsonData).toPromise();
+  }
 
   getItemsFoundCount(items: Item[]): number {
     return items.filter(item => item.found).length;
   }
 
-
   async getItemsFoundByItemType(itemType: string): Promise<Item[]> {
     try {
-      const response = await this.http.get<Item[]>('assets/item-data.json').toPromise();
+      const response = await this.http.get<Item[]>(this.apiUrl).toPromise();
       const items = response ? response : [];
+      this.fullItemData = items;
 
       if (itemType === "/" || itemType === "")
-        return items
+        return items;
 
       return items.filter(item => item.itemType === itemType);
     } catch (error) {
