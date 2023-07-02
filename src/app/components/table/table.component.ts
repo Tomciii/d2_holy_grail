@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ItemService } from '../../service/item-data/item.service';
 import {Item} from "../../model/item.model";

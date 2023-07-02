@@ -13,12 +13,13 @@ export class NagivationBarComponent implements OnInit {
   title: string = "Diablo 2 Holy Grail";
   @Input() armorTypes: string[] = this.itemSerive.getArmorTypes()
   @Input() weaponTypes: string[] = this.itemSerive.getWeaponTypes()
+  @Input() menuItems: string[] = ["Export", "Import", "Reset"]
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-  
+
   navigateToPage() {
     this.router.navigate(["/"]);
   }
