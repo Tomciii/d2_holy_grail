@@ -26,7 +26,7 @@
     <ng-container matColumnDef="found">
       <th mat-header-cell *matHeaderCellDef>Found</th>
       <td mat-cell *matCellDef="let element">
-        <mat-checkbox color="primary" [(ngModel)]="element.found" (change)="refreshTable()"></mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="element.found" (change)="refreshPage()"></mat-checkbox>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

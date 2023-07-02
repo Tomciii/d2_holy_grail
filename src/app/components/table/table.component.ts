@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import { MatTableDataSource } from '@angular/material/table';
 import { ItemService } from '../../service/item-data/item.service';
 import {Item} from "../../model/item.model";
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -10,7 +11,8 @@ import {Item} from "../../model/item.model";
 export class TableComponent implements OnInit, OnChanges {
   @Input() itemType!: string;
 
-  displayedColumns: string[] = [ 'image', 'item', 'stats', 'found'];
+  items: Item[] = [];
+  displayedColumns: string[] = ['image', 'item', 'stats', 'found'];
   itemDataSource!: MatTableDataSource<any>;
   itemsFound!: number;
   itemsTotalCount!: number;
@@ -25,10 +27,20 @@ export class TableComponent implements OnInit, OnChanges {
     this.refreshTable();
   }
 
-  refreshTable(): void {
-    const items = this.dataService.getAllItems(this.itemType);
-    this.itemDataSource = new MatTableDataSource<Item>(items);
-    this.itemsFound = this.dataService.getItemsFoundCount(items);
-    this.itemsTotalCount = items.length;
+  async refreshPage() : Promise<void>{
+    this.itemDataSource = new MatTableDataSource<Item>(this.items);
+    this.itemsFound = this.dataService.getItemsFoundCount(this.items);
+    this.itemsTotalCount = this.items.length;
+    this.saveItems();
+  }
+
+  async refreshTable(): Promise<void> {
+    const items = await this.dataService.getItemsFoundByItemType(this.itemType);
+    this.items = items;
+    this.refreshPage();
+  }
+
+  saveItems(): void {
+    this.dataService.saveItemsToJSONFile(this.items);
   }
 }
