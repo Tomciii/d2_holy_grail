@@ -1,5 +1,3 @@
-import {ItemTypeEnum} from "./itemTypeEnum.model";
-
 export class Item {
   name: string;
   itemType: string;
@@ -9,11 +7,11 @@ export class Item {
   variety: string;
   rarity: string;
 
-  constructor(name: string, itemType: ItemTypeEnum, stats:string[], found:boolean, image:string, itemRarity: string, itemVariety: string) {
+  constructor(name: string, itemType: string, stats:string[], found:boolean, image:string, itemRarity: string, itemVariety: string) {
     this.name = name;
     this.stats = stats;
     this.found = found;
-    this.itemType = ItemTypeEnum[itemType];
+    this.itemType = itemType;
     this.image = image;
     this.variety = itemVariety;
     this.rarity = itemRarity;

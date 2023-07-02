@@ -42,12 +42,19 @@ export class ItemService {
 
   async getItemsFoundByItemType(itemType: string): Promise<Item[]> {
     try {
+      console.log("Test" + itemType)
       const response = await this.http.get<Item[]>(this.apiGETUrl).toPromise();
       const items = response ? response : [];
-      this.fullItemData = items;
 
-      if (itemType === "/" || itemType === "")
+      this.fullItemData = items;
+      if (itemType === "/" || itemType === "") {
         return items;
+
+      }
+
+      if (itemType.includes(" ")){
+        return items.filter(item => item.variety === itemType)
+      }
 
       return items.filter(item => item.itemType === itemType);
     } catch (error) {

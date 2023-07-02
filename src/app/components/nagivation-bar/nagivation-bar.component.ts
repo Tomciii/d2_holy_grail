@@ -14,6 +14,7 @@ export class NagivationBarComponent implements OnInit {
   @Input() armorTypes: string[] = this.itemSerive.getArmorTypes()
   @Input() weaponTypes: string[] = this.itemSerive.getWeaponTypes()
   @Input() runeTypes: string[] = this.itemSerive.getRuneTypes()
+  @Input() sets: string[] = this.itemSerive.getSets()
   @Input() menuItems: string[] = ["Export", "Import", "Reset"]
 
   constructor(private router: Router) { }
