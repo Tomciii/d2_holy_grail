@@ -104,5 +104,8 @@
       }
     }
   },
-  "defaultProject": "d2_holy_grail"
+  "defaultProject": "d2_holy_grail",
+  "cli": {
+    "analytics": "e12617b1-12a1-4038-b858-f8120bf79d3d"
+  }
 }

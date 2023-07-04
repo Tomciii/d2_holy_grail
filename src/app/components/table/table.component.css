@@ -46,9 +46,11 @@ table td {
   color: white;
 }
 
-table th {
+table th, tr {
   background: #333131;
 }
+
+
 
 .mat-checkbox .mat-checkbox-frame {
   transform: scale(1.2);
@@ -63,11 +65,15 @@ table th {
   font-size: 12px;
 }
 
-.itemTable .mat-row:nth-child(odd) {
+.itemTable .mat-row:hover {
   background-color: #252323; /* Set the background color for even rows */
 }
 
-.itemTable .mat-row:nth-child(even) {
+table tr:hover {
+  background-color: #252323;
+}
+
+.itemTable .mat-row:hover {
   background-color: #333131; /* Set the background color for even rows */
 }
 

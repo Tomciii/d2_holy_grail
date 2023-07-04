@@ -1,4 +1,13 @@
 
 body {
+  color: wheat;
   background: #525050;
+}
+
+h4 {
+  color: white !important;
+}
+
+.mdc-button__label {
+  color: white !important;
 }
