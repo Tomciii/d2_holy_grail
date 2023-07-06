@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
-import {ItemService} from "../../service/item-data/item.service";
 import {HttpClient} from "@angular/common/http";
 /**
  * @title Basic menu
